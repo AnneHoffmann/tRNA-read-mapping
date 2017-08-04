@@ -1,0 +1,1693 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "Accurate Mapping of tRNA Reads", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "hg38.genomic.fa"
+                }
+            ], 
+            "label": "hg38.genomic.fa", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 317
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"hg38.genomic.fa\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "bfe5718d-69fb-4a6b-8db9-6a3cda9ac321", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "adapter.fa"
+                }
+            ], 
+            "label": "adapter.fa", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 437
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"adapter.fa\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "142e393d-dc21-4ded-8bf0-ffaefc842a03", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "test.fastq"
+                }
+            ], 
+            "label": "test.fastq", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 557
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"test.fastq\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "fe10b5a9-04f0-4d96-93e2-cbc99926d5d5", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "trnascan", 
+            "errors": null, 
+            "id": 3, 
+            "input_connections": {
+                "inputfile": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool tRNA prediction", 
+                    "name": "inputfile"
+                }
+            ], 
+            "label": null, 
+            "name": "tRNA prediction", 
+            "outputs": [
+                {
+                    "name": "tabular_output", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "fasta_output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 420, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionfasta_output": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "fasta_output"
+                }, 
+                "HideDatasetActiontabular_output": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "tabular_output"
+                }
+            }, 
+            "tool_id": "trnascan", 
+            "tool_state": "{\"__page__\": null, \"showPrimSecondOpt\": \"\\\"false\\\"\", \"showCodons\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"organism\": \"\\\"\\\"\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"disablePseudo\": \"\\\"false\\\"\", \"mode\": \"\\\"\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"inputfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.4", 
+            "type": "tool", 
+            "uuid": "cc955060-85b8-4547-a0d6-363c04338dbf", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "getchrM", 
+            "errors": null, 
+            "id": 4, 
+            "input_connections": {
+                "input": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool grep mitochondrial genome", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "grep mitochondrial genome", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 420, 
+                "top": 437
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "getchrM", 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"__page__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "7f0bf00b-60ea-4555-bfec-b0a4dade3af1", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.68", 
+            "errors": null, 
+            "id": 5, 
+            "input_connections": {
+                "input_file": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "contaminants"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "limits"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "FastQC", 
+            "outputs": [
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "text_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 420, 
+                "top": 557
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionhtml_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "html_file"
+                }, 
+                "HideDatasetActiontext_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "text_file"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.68", 
+            "tool_shed_repository": {
+                "changeset_revision": "484e86282f4b", 
+                "name": "fastqc", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"limits\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"contaminants\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.68", 
+            "type": "tool", 
+            "uuid": "41bdcedf-b3cd-4601-abc3-345037ac85b1", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": "tRNAmodbbduk", 
+            "errors": null, 
+            "id": 6, 
+            "input_connections": {
+                "adapter": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "input": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool bbduk_for_tRNAmod", 
+                    "name": "input"
+                }, 
+                {
+                    "description": "runtime parameter for tool bbduk_for_tRNAmod", 
+                    "name": "adapter"
+                }
+            ], 
+            "label": null, 
+            "name": "bbduk_for_tRNAmod", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fastq"
+                }
+            ], 
+            "position": {
+                "left": 420, 
+                "top": 677
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "tRNAmodbbduk", 
+            "tool_state": "{\"__page__\": null, \"adapter\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "2d019309-a9a3-43e8-9803-b1fbc8656e11", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "content_id": "Grep1", 
+            "errors": null, 
+            "id": 7, 
+            "input_connections": {
+                "input": {
+                    "id": 3, 
+                    "output_name": "tabular_output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Select", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Select", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 640, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_id": "Grep1", 
+            "tool_state": "{\"__page__\": null, \"pattern\": \"\\\"^chrM\\\"\", \"invert\": \"\\\"true\\\"\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "uuid": "4b9224fd-3946-4c65-b964-1a59e5f32776", 
+            "workflow_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "content_id": "trnascan", 
+            "errors": null, 
+            "id": 8, 
+            "input_connections": {
+                "inputfile": {
+                    "id": 4, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool tRNA prediction", 
+                    "name": "inputfile"
+                }
+            ], 
+            "label": null, 
+            "name": "tRNA prediction", 
+            "outputs": [
+                {
+                    "name": "tabular_output", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "fasta_output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 640, 
+                "top": 437
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionfasta_output": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "fasta_output"
+                }, 
+                "HideDatasetActiontabular_output": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "tabular_output"
+                }
+            }, 
+            "tool_id": "trnascan", 
+            "tool_state": "{\"__page__\": null, \"showPrimSecondOpt\": \"\\\"false\\\"\", \"showCodons\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"organism\": \"\\\"-O\\\"\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"disablePseudo\": \"\\\"false\\\"\", \"mode\": \"\\\"\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"inputfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.4", 
+            "type": "tool", 
+            "uuid": "9fae3521-9458-4760-8c60-5e81bd897807", 
+            "workflow_outputs": []
+        }, 
+        "9": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.68", 
+            "errors": null, 
+            "id": 9, 
+            "input_connections": {
+                "input_file": {
+                    "id": 6, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "contaminants"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "limits"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "FastQC", 
+            "outputs": [
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "text_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 640, 
+                "top": 557
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionhtml_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "html_file"
+                }, 
+                "HideDatasetActiontext_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "text_file"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.68", 
+            "tool_shed_repository": {
+                "changeset_revision": "484e86282f4b", 
+                "name": "fastqc", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"limits\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"contaminants\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.68", 
+            "type": "tool", 
+            "uuid": "97db724f-de7d-4348-aedb-bec50d4d9529", 
+            "workflow_outputs": []
+        }, 
+        "10": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/mandorodriguez/concat_text_files/concat_text_files/1.0.0", 
+            "errors": null, 
+            "id": 10, 
+            "input_connections": {
+                "input_files": [
+                    {
+                        "id": 7, 
+                        "output_name": "out_file1"
+                    }, 
+                    {
+                        "id": 8, 
+                        "output_name": "tabular_output"
+                    }
+                ]
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Concat text files", 
+                    "name": "input_files"
+                }
+            ], 
+            "label": null, 
+            "name": "Concat text files", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 860, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/mandorodriguez/concat_text_files/concat_text_files/1.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "8bf77d768a2b", 
+                "name": "concat_text_files", 
+                "owner": "mandorodriguez", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"input_files\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "a1eb0429-f653-4e80-ab91-34efa513f8f4", 
+            "workflow_outputs": []
+        }, 
+        "11": {
+            "annotation": "", 
+            "content_id": "tRNAscan2bed12", 
+            "errors": null, 
+            "id": 11, 
+            "input_connections": {
+                "input": {
+                    "id": 10, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool tRNAscan convert to bed12", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "tRNAscan convert to bed12", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bed12"
+                }
+            ], 
+            "position": {
+                "left": 1080, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "tRNAscan2bed12", 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"__page__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "f3a6e7ed-7475-4381-b3d8-3f4d6e0f093d", 
+            "workflow_outputs": []
+        }, 
+        "12": {
+            "annotation": "", 
+            "content_id": "modBed12", 
+            "errors": null, 
+            "id": 12, 
+            "input_connections": {
+                "input": {
+                    "id": 11, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Add flanking region and remove pseudogenes", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Add flanking region and remove pseudogenes", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bed"
+                }
+            ], 
+            "position": {
+                "left": 1300, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "modBed12", 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"__page__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "2343e831-9ca3-4074-afc4-91cf7444b1cd", 
+            "workflow_outputs": []
+        }, 
+        "13": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_maskfastabed/2.26.0.0", 
+            "errors": null, 
+            "id": 13, 
+            "input_connections": {
+                "fasta": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "input": {
+                    "id": 11, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool MaskFastaBed", 
+                    "name": "input"
+                }, 
+                {
+                    "description": "runtime parameter for tool MaskFastaBed", 
+                    "name": "fasta"
+                }
+            ], 
+            "label": null, 
+            "name": "MaskFastaBed", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 1300, 
+                "top": 437
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_maskfastabed/2.26.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "304a594a7ef6", 
+                "name": "bedtools", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"mc\": \"\\\"N\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"fasta\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"soft\": \"\\\"false\\\"\"}", 
+            "tool_version": "2.26.0.0", 
+            "type": "tool", 
+            "uuid": "03313252-7026-4578-ad1b-4900f8c6b3bd", 
+            "workflow_outputs": []
+        }, 
+        "14": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_getfastabed/2.26.0.0", 
+            "errors": null, 
+            "id": 14, 
+            "input_connections": {
+                "fasta_source|fasta": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "input": {
+                    "id": 11, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": true
+                }, 
+                {
+                    "description": "runtime parameter for tool GetFastaBed", 
+                    "name": "fasta_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool GetFastaBed", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "GetFastaBed", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 1300, 
+                "top": 557
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_getfastabed/2.26.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "304a594a7ef6", 
+                "name": "bedtools", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"name\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"fasta_source\": \"{\\\"fasta\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0, \\\"fasta_source_selector\\\": \\\"history\\\"}\", \"tab\": \"\\\"false\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"strand\": \"\\\"true\\\"\", \"split\": \"\\\"true\\\"\"}", 
+            "tool_version": "2.26.0.0", 
+            "type": "tool", 
+            "uuid": "1d3d17a5-3422-4be6-b1a1-f4ae2748e467", 
+            "workflow_outputs": []
+        }, 
+        "15": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_getfastabed/2.26.0.0", 
+            "errors": null, 
+            "id": 15, 
+            "input_connections": {
+                "fasta_source|fasta": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "input": {
+                    "id": 12, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": true
+                }, 
+                {
+                    "description": "runtime parameter for tool GetFastaBed", 
+                    "name": "fasta_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool GetFastaBed", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "GetFastaBed", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 1520, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_getfastabed/2.26.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "304a594a7ef6", 
+                "name": "bedtools", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"name\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"fasta_source\": \"{\\\"fasta\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0, \\\"fasta_source_selector\\\": \\\"history\\\"}\", \"tab\": \"\\\"false\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"strand\": \"\\\"true\\\"\", \"split\": \"\\\"true\\\"\"}", 
+            "tool_version": "2.26.0.0", 
+            "type": "tool", 
+            "uuid": "a2646f39-517a-4a08-9fea-79e7f39a5c72", 
+            "workflow_outputs": []
+        }, 
+        "16": {
+            "annotation": "", 
+            "content_id": "modFasta", 
+            "errors": null, 
+            "id": 16, 
+            "input_connections": {
+                "input": {
+                    "id": 14, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Modifie fasta IDs", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Modifie fasta IDs", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 1520, 
+                "top": 437
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "modFasta", 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"__page__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "36b128b9-16fb-419d-925e-89348425a536", 
+            "workflow_outputs": []
+        }, 
+        "17": {
+            "annotation": "", 
+            "content_id": "modFasta", 
+            "errors": null, 
+            "id": 17, 
+            "input_connections": {
+                "input": {
+                    "id": 15, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Modifie fasta IDs", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Modifie fasta IDs", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 1740, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "modFasta", 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"__page__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "1ef884ea-71c6-46be-bca4-d53d7d4c5375", 
+            "workflow_outputs": []
+        }, 
+        "18": {
+            "annotation": "", 
+            "content_id": "addCCA", 
+            "errors": null, 
+            "id": 18, 
+            "input_connections": {
+                "input": {
+                    "id": 16, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool add CCA tails to tRNA chromosomes", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "add CCA tails to tRNA chromosomes", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 1740, 
+                "top": 437
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "addCCA", 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"__page__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "ec9199b8-64a5-4752-8d4f-d8ba953e005f", 
+            "workflow_outputs": []
+        }, 
+        "19": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/mandorodriguez/concat_text_files/concat_text_files/1.0.0", 
+            "errors": null, 
+            "id": 19, 
+            "input_connections": {
+                "input_files": [
+                    {
+                        "id": 13, 
+                        "output_name": "output"
+                    }, 
+                    {
+                        "id": 17, 
+                        "output_name": "output"
+                    }
+                ]
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Concat text files", 
+                    "name": "input_files"
+                }
+            ], 
+            "label": null, 
+            "name": "Concat text files", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1960, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/mandorodriguez/concat_text_files/concat_text_files/1.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "8bf77d768a2b", 
+                "name": "concat_text_files", 
+                "owner": "mandorodriguez", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"input_files\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "6c05a564-fd81-437b-9545-a4b81e641e9d", 
+            "workflow_outputs": []
+        }, 
+        "20": {
+            "annotation": "", 
+            "content_id": "clustering", 
+            "errors": null, 
+            "id": 20, 
+            "input_connections": {
+                "input": {
+                    "id": 18, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool clustering of identicial sequences", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "clustering of identicial sequences", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output2", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 1960, 
+                "top": 437
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "clustering", 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"__page__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "bc53a76b-1b4d-4c15-8473-2aceecbe4f7b", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output2", 
+                    "uuid": "fa7a9280-a1e3-4771-96f0-30b0f8c5794a"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "output1", 
+                    "uuid": "2fd51b97-b9f8-4ea6-81ed-12b9b7178365"
+                }
+            ]
+        }, 
+        "21": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/rnateam/segemehl/segemehl/0.2.0.3", 
+            "errors": null, 
+            "id": 21, 
+            "input_connections": {
+                "library|input_query": {
+                    "id": 6, 
+                    "output_name": "output"
+                }, 
+                "refGenomeSource|own_reference_genome": {
+                    "id": 19, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool segemehl", 
+                    "name": "refGenomeSource"
+                }, 
+                {
+                    "description": "runtime parameter for tool segemehl", 
+                    "name": "library"
+                }
+            ], 
+            "label": null, 
+            "name": "segemehl", 
+            "outputs": [
+                {
+                    "name": "segemehl_out", 
+                    "type": "sam"
+                }
+            ], 
+            "position": {
+                "left": 2180, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionsegemehl_out": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "segemehl_out"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/rnateam/segemehl/segemehl/0.2.0.3", 
+            "tool_shed_repository": {
+                "changeset_revision": "db367d012fa3", 
+                "name": "segemehl", 
+                "owner": "rnateam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"maxout\": \"\\\"0\\\"\", \"prime5\": \"\\\"\\\"\", \"autoclip\": \"\\\"false\\\"\", \"hitstrategy\": \"\\\"1\\\"\", \"__page__\": null, \"hardclip\": \"\\\"false\\\"\", \"evalue\": \"\\\"500.0\\\"\", \"differences\": \"\\\"3\\\"\", \"splitreads\": \"{\\\"splits\\\": \\\"nosplit\\\", \\\"__current_case__\\\": 1}\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"order\": \"\\\"false\\\"\", \"minsize\": \"\\\"12\\\"\", \"maxinterval\": \"\\\"1000\\\"\", \"__rerun_remap_job_id__\": null, \"library\": \"{\\\"type\\\": \\\"single\\\", \\\"input_query\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"prime3\": \"\\\"\\\"\", \"refGenomeSource\": \"{\\\"genomeSource\\\": \\\"history\\\", \\\"own_reference_genome\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"polyA\": \"\\\"false\\\"\", \"accuracy\": \"\\\"80\\\"\"}", 
+            "tool_version": "0.2.0.3", 
+            "type": "tool", 
+            "uuid": "36ba965a-99ce-4e08-9c7a-ddcdecc50fe7", 
+            "workflow_outputs": []
+        }, 
+        "22": {
+            "annotation": "", 
+            "content_id": "removeGenomeMapper", 
+            "errors": null, 
+            "id": 22, 
+            "input_connections": {
+                "input1": {
+                    "id": 17, 
+                    "output_name": "output"
+                }, 
+                "input2": {
+                    "id": 21, 
+                    "output_name": "segemehl_out"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool remove reads mapping to the genome", 
+                    "name": "input2"
+                }, 
+                {
+                    "description": "runtime parameter for tool remove reads mapping to the genome", 
+                    "name": "input1"
+                }
+            ], 
+            "label": null, 
+            "name": "remove reads mapping to the genome", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "sam"
+                }
+            ], 
+            "position": {
+                "left": 2400, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "removeGenomeMapper", 
+            "tool_state": "{\"input2\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": null, \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "8095e048-3720-46b7-94ab-c25567e28346", 
+            "workflow_outputs": []
+        }, 
+        "23": {
+            "annotation": "", 
+            "content_id": "removePrecursor", 
+            "errors": null, 
+            "id": 23, 
+            "input_connections": {
+                "input1": {
+                    "id": 12, 
+                    "output_name": "output"
+                }, 
+                "input2": {
+                    "id": 22, 
+                    "output_name": "output"
+                }, 
+                "input3": {
+                    "id": 6, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool remove pre-tRNA reads", 
+                    "name": "input2"
+                }, 
+                {
+                    "description": "runtime parameter for tool remove pre-tRNA reads", 
+                    "name": "input3"
+                }, 
+                {
+                    "description": "runtime parameter for tool remove pre-tRNA reads", 
+                    "name": "input1"
+                }
+            ], 
+            "label": null, 
+            "name": "remove pre-tRNA reads", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fastq"
+                }
+            ], 
+            "position": {
+                "left": 2620, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "removePrecursor", 
+            "tool_state": "{\"input2\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input3\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "c1cef521-9aa1-4331-a640-5c8682b31487", 
+            "workflow_outputs": []
+        }, 
+        "24": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/rnateam/segemehl/segemehl/0.2.0.3", 
+            "errors": null, 
+            "id": 24, 
+            "input_connections": {
+                "library|input_query": {
+                    "id": 23, 
+                    "output_name": "output"
+                }, 
+                "refGenomeSource|own_reference_genome": {
+                    "id": 20, 
+                    "output_name": "output1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool segemehl", 
+                    "name": "refGenomeSource"
+                }, 
+                {
+                    "description": "runtime parameter for tool segemehl", 
+                    "name": "library"
+                }
+            ], 
+            "label": null, 
+            "name": "segemehl", 
+            "outputs": [
+                {
+                    "name": "segemehl_out", 
+                    "type": "sam"
+                }
+            ], 
+            "position": {
+                "left": 2840, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionsegemehl_out": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "segemehl_out"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/rnateam/segemehl/segemehl/0.2.0.3", 
+            "tool_shed_repository": {
+                "changeset_revision": "db367d012fa3", 
+                "name": "segemehl", 
+                "owner": "rnateam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"maxout\": \"\\\"0\\\"\", \"prime5\": \"\\\"\\\"\", \"autoclip\": \"\\\"false\\\"\", \"hitstrategy\": \"\\\"1\\\"\", \"__page__\": null, \"hardclip\": \"\\\"false\\\"\", \"evalue\": \"\\\"500.0\\\"\", \"differences\": \"\\\"3\\\"\", \"splitreads\": \"{\\\"splits\\\": \\\"nosplit\\\", \\\"__current_case__\\\": 1}\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"order\": \"\\\"false\\\"\", \"minsize\": \"\\\"12\\\"\", \"maxinterval\": \"\\\"1000\\\"\", \"__rerun_remap_job_id__\": null, \"library\": \"{\\\"type\\\": \\\"single\\\", \\\"input_query\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"prime3\": \"\\\"\\\"\", \"refGenomeSource\": \"{\\\"genomeSource\\\": \\\"history\\\", \\\"own_reference_genome\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"polyA\": \"\\\"false\\\"\", \"accuracy\": \"\\\"85\\\"\"}", 
+            "tool_version": "0.2.0.3", 
+            "type": "tool", 
+            "uuid": "683b301c-bc30-4b0f-8676-d9f3db8e2c9c", 
+            "workflow_outputs": []
+        }, 
+        "25": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/sam_to_bam/sam_to_bam/2.0", 
+            "errors": null, 
+            "id": 25, 
+            "input_connections": {
+                "source|input1": {
+                    "id": 24, 
+                    "output_name": "segemehl_out"
+                }, 
+                "source|ref_file": {
+                    "id": 20, 
+                    "output_name": "output1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool SAM-to-BAM", 
+                    "name": "source"
+                }, 
+                {
+                    "description": "runtime parameter for tool SAM-to-BAM", 
+                    "name": "source"
+                }
+            ], 
+            "label": null, 
+            "name": "SAM-to-BAM", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 3060, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output1"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/sam_to_bam/sam_to_bam/2.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "d04d9f1c6791", 
+                "name": "sam_to_bam", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"source\": \"{\\\"index_source\\\": \\\"history\\\", \\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"input1\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"__page__\": null}", 
+            "tool_version": "2.0", 
+            "type": "tool", 
+            "uuid": "31a125f9-18a6-43d4-a8da-4a49b65054df", 
+            "workflow_outputs": []
+        }, 
+        "26": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/picard/picard_AddOrReplaceReadGroups/2.7.1.0", 
+            "errors": null, 
+            "id": 26, 
+            "input_connections": {
+                "inputFile": {
+                    "id": 25, 
+                    "output_name": "output1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool AddOrReplaceReadGroups", 
+                    "name": "inputFile"
+                }
+            ], 
+            "label": null, 
+            "name": "AddOrReplaceReadGroups", 
+            "outputs": [
+                {
+                    "name": "outFile", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 3280, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutFile": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "outFile"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/picard/picard_AddOrReplaceReadGroups/2.7.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "fc288950c3b7", 
+                "name": "picard", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"read_group_sm_conditional\": \"{\\\"do_auto_name\\\": \\\"false\\\", \\\"SM\\\": \\\"1\\\", \\\"__current_case__\\\": 1}\", \"CN\": \"\\\"\\\"\", \"PU\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"read_group_lb_conditional\": \"{\\\"do_auto_name\\\": \\\"false\\\", \\\"LB\\\": \\\"default\\\", \\\"__current_case__\\\": 1}\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"read_group_id_conditional\": \"{\\\"do_auto_name\\\": \\\"false\\\", \\\"ID\\\": \\\"default\\\", \\\"__current_case__\\\": 1}\", \"validation_stringency\": \"\\\"LENIENT\\\"\", \"DT\": \"\\\"\\\"\", \"PI\": \"\\\"\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"DS\": \"\\\"\\\"\", \"PL\": \"\\\"ILLUMINA\\\"\", \"inputFile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "2.7.1.0", 
+            "type": "tool", 
+            "uuid": "9c4e34ec-aa38-453c-a173-101cbe2cc31c", 
+            "workflow_outputs": []
+        }, 
+        "27": {
+            "annotation": "", 
+            "content_id": "tRNAmodgatk", 
+            "errors": null, 
+            "id": 27, 
+            "input_connections": {
+                "input": {
+                    "id": 26, 
+                    "output_name": "outFile"
+                }, 
+                "reference": {
+                    "id": 20, 
+                    "output_name": "output1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool gatk_for_tRNAmod", 
+                    "name": "reference"
+                }, 
+                {
+                    "description": "runtime parameter for tool gatk_for_tRNAmod", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "gatk_for_tRNAmod", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 3500, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "tRNAmodgatk", 
+            "tool_state": "{\"__page__\": null, \"reference\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"gatktool\": \"{\\\"tool\\\": \\\"PrintReads\\\", \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.1.1", 
+            "type": "tool", 
+            "uuid": "f89bd418-c441-44b1-96bf-1b84a83c463f", 
+            "workflow_outputs": []
+        }, 
+        "28": {
+            "annotation": "", 
+            "content_id": "tRNAmodgatk", 
+            "errors": null, 
+            "id": 28, 
+            "input_connections": {
+                "input": {
+                    "id": 27, 
+                    "output_name": "output"
+                }, 
+                "reference": {
+                    "id": 20, 
+                    "output_name": "output1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool gatk_for_tRNAmod", 
+                    "name": "reference"
+                }, 
+                {
+                    "description": "runtime parameter for tool gatk_for_tRNAmod", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "gatk_for_tRNAmod", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 3720, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "tRNAmodgatk", 
+            "tool_state": "{\"__page__\": null, \"reference\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"gatktool\": \"{\\\"tool\\\": \\\"RealignerTargetCreator\\\", \\\"__current_case__\\\": 2}\", \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.1.1", 
+            "type": "tool", 
+            "uuid": "684bfce5-6c82-4c72-9fff-511f01c27493", 
+            "workflow_outputs": []
+        }, 
+        "29": {
+            "annotation": "", 
+            "content_id": "tRNAmodgatk", 
+            "errors": null, 
+            "id": 29, 
+            "input_connections": {
+                "gatktool|intervals": {
+                    "id": 28, 
+                    "output_name": "output"
+                }, 
+                "input": {
+                    "id": 27, 
+                    "output_name": "output"
+                }, 
+                "reference": {
+                    "id": 20, 
+                    "output_name": "output1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool gatk_for_tRNAmod", 
+                    "name": "gatktool"
+                }, 
+                {
+                    "description": "runtime parameter for tool gatk_for_tRNAmod", 
+                    "name": "reference"
+                }, 
+                {
+                    "description": "runtime parameter for tool gatk_for_tRNAmod", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "gatk_for_tRNAmod", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 3940, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "tRNAmodgatk", 
+            "tool_state": "{\"__page__\": null, \"reference\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"gatktool\": \"{\\\"tool\\\": \\\"IndelRealigner\\\", \\\"intervals\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.1.1", 
+            "type": "tool", 
+            "uuid": "82fb5b41-d7a6-4cf9-bbe4-e33f04e759e2", 
+            "workflow_outputs": []
+        }, 
+        "30": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/2.0", 
+            "errors": null, 
+            "id": 30, 
+            "input_connections": {
+                "input1": {
+                    "id": 29, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool BAM-to-SAM", 
+                    "name": "input1"
+                }
+            ], 
+            "label": null, 
+            "name": "BAM-to-SAM", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "sam"
+                }
+            ], 
+            "position": {
+                "left": 4160, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output1"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/2.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "af7c50162f0b", 
+                "name": "bam_to_sam", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"header\": \"\\\"-h\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "2.0", 
+            "type": "tool", 
+            "uuid": "e79663e9-bdd5-4159-816b-a30949e6cac6", 
+            "workflow_outputs": []
+        }, 
+        "31": {
+            "annotation": "", 
+            "content_id": "multimapperPhasing", 
+            "errors": null, 
+            "id": 31, 
+            "input_connections": {
+                "input": {
+                    "id": 30, 
+                    "output_name": "output1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool read filter", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "read filter", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "sam"
+                }
+            ], 
+            "position": {
+                "left": 4380, 
+                "top": 317
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "multimapperPhasing", 
+            "tool_state": "{\"__page__\": null, \"verbose\": \"\\\"0\\\"\", \"__rerun_remap_job_id__\": null, \"end_dist\": \"\\\"0\\\"\", \"choice\": \"\\\"unique\\\"\", \"indel_dist\": \"\\\"0\\\"\", \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "24780409-be04-4a80-acc2-c7be0b3425e1", 
+            "workflow_outputs": []
+        }, 
+        "32": {
+            "annotation": "", 
+            "content_id": "tRNAmodgatk", 
+            "errors": null, 
+            "id": 32, 
+            "input_connections": {
+                "input": {
+                    "id": 31, 
+                    "output_name": "output"
+                }, 
+                "reference": {
+                    "id": 20, 
+                    "output_name": "output1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool gatk_for_tRNAmod", 
+                    "name": "reference"
+                }, 
+                {
+                    "description": "runtime parameter for tool gatk_for_tRNAmod", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "gatk_for_tRNAmod", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 4600, 
+                "top": 317
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "tRNAmodgatk", 
+            "tool_state": "{\"__page__\": null, \"reference\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"gatktool\": \"{\\\"tool\\\": \\\"UnifiedGenotyper\\\", \\\"__current_case__\\\": 3}\", \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"7df2aa22782f11e7951e0242ac110002\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.1.1", 
+            "type": "tool", 
+            "uuid": "3cad1591-dd76-48b8-856d-dfe478d540fe", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "6345220a-4c8e-446d-aa85-19aa3f174fd4"
+                }
+            ]
+        }, 
+        "33": {
+            "annotation": "", 
+            "content_id": "Grep1", 
+            "errors": null, 
+            "id": 33, 
+            "input_connections": {
+                "input": {
+                    "id": 32, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Select", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Select", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 4820, 
+                "top": 317
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "Grep1", 
+            "tool_state": "{\"__page__\": null, \"pattern\": \"\\\"\\\\\\\\tLowQual\\\\\\\\t\\\"\", \"invert\": \"\\\"true\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "uuid": "c944c99f-bc8b-45e3-b52e-84c4247ee787", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "out_file1", 
+                    "uuid": "09cd1bfe-0670-4db4-b964-af938be62fe8"
+                }
+            ]
+        }
+    }, 
+    "uuid": "f50e07c4-7e54-4f7a-85fa-3dda998794eb"
+}
