@@ -16,16 +16,17 @@ adapterFile="${cwd}/TestData/NGS/adapter.fa"
 
 #program paths
 #change here your program paths
-bbduk="/home/mescalin/fabian/Progs/down/bbmap/bbduk.sh"   # java -ea -Xmx1g -cp C:/usr/local/bbmap/current/ jgi.BBDukF
-fastqc="fastqc"                                           # /usr/local/bin/fastqc
-samtools="samtools"                                       # /usr/local/bin/samtools
-tRNAscanSE="tRNAscan-SE"                                  # /opt/bin/tRNAscan-SE
-bedtools="bedtools"                                       # /usr/local/bin/bedtools
-segemehl="segemehl.x"                                     # /scr/k41san/tools/segemehl/0_2_0/segemehl/segemehl.x
-picardJar="/home/mescalin/fabian/.local/bin/picard.jar"   # /opt/picard-tools-2.2.1/picard.jar
+#the workflow was tested at the following tools versions (see comments)
+bbduk="java -ea -Xmx1g -cp C:/usr/local/bbmap/current/ jgi.BBDukF" 	#BBMap version 36.14
+fastqc="fastqc"                                           		#v0.11.4
+samtools="samtools"                                       		#1.3 (using htslib 1.3)
+tRNAscanSE="tRNAscan-SE"                                  		#1.3.1 (January 2012)
+bedtools="bedtools"                                       		#v2.25.0
+segemehl="segemehl.x"                                     		#0.2.0-418
+picardJar="picard.jar"  				 		#2.2.1
 picard="java -jar $picardJar"
-gatkJar="/scratch/fabian/Progs/down/GenomeAnalysisTK.jar" # /opt/gatk/GenomeAnalysisTK.jar
-gatk="java -jar $gatkJar"
+gatkJar="GenomeAnalysisTK.jar" 						#3.5-0-g36282e4
+gatk="java -jar $gatkJar"		
 
 # variables
 #change here the names of the variable
