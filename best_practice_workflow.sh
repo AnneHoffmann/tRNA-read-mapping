@@ -17,7 +17,7 @@ adapterFile="${cwd}/TestData/NGS/adapter.fa"
 #program paths
 #change here your program paths
 #the workflow was tested at the following tools versions (see comments)
-bbduk="java -ea -Xmx1g -cp C:/usr/local/bbmap/current/ jgi.BBDukF" 	#BBMap version 36.14
+bbduk="bbmap.sh"                                            	#BBMap version 36.14 Best install via 'conda install bbmap'
 fastqc="fastqc"                                           		#v0.11.4
 samtools="samtools"                                       		#1.3 (using htslib 1.3)
 tRNAscanSE="tRNAscan-SE"                                  		#1.3.1 (January 2012)
