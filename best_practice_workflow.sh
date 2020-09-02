@@ -132,7 +132,8 @@ do
     perl ${scriptDir}/removeGenomeMapper.pl ${genomeDir}/${tRNAName}_pre-tRNAs.fa ${bn}.sam ${bn}_filtered.sam
 
     ##remove pre-tRNA reads, keep only mature tRNA reads
-    perl ${scriptDir}/removePrecursor.pl  ${genomeDir}/${tRNAName}_pre-tRNAs.bed12 ${bn}_filtered.sam $n > ${bn}_filtered.fastq
+    ##the length of the flanking region is default 50 (this can be adjusted according to the species)
+    perl ${scriptDir}/removePrecursor.pl  ${genomeDir}/${tRNAName}_pre-tRNAs.bed12 ${bn}_filtered.sam $n 50 > ${bn}_filtered.fastq
     gzip ${bn}_filtered.fastq
 done
 
