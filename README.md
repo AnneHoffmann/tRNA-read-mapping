@@ -9,4 +9,4 @@ time sh best_practice_workflow.sh #TestData
 real	2m10.206s, user	2m15.260s, sys	0m7.916s
 
 
-For questions and help, please contact: anne.hoffmann@d@helmholtz-muenchen.de
+For questions and help, please contact: anne.hoffmann@helmholtz-muenchen.de
